@@ -1,61 +1,49 @@
-﻿using System;
-using CreationalPattern.Patterns.AbstractFactory;
-using CreationalPattern.Patterns.Builder;
-using CreationalPattern.Patterns.FactoryMethod;
-using CreationalPattern.Patterns.Prototype;
-using CreationalPattern.Patterns.Singleton;
+﻿using CreationalPattern.StructuralPattern.Adapter;
+using CreationalPattern.StructuralPattern.Bridge;
+using CreationalPattern.StructuralPattern.Composite;
+using CreationalPattern.StructuralPattern.Decorator;
+using CreationalPattern.StructuralPattern.Facade;
+using CreationalPattern.StructuralPattern.Flyweight;
+using CreationalPattern.StructuralPattern.Proxy;
 
-namespace CreationalPattern
+
+class Program
 {
-    public class Program
+    static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
-            Console.WriteLine("------Singleton Pattern------");
-            var company = Company.Instance;
-            company.StartWork();
+        // Structural Patterns
+        Console.WriteLine("\n=== Structural Patterns ===");
 
-            Console.WriteLine("\n------Factory Method Pattern------");
-            EmployeeFactory developerFactory = new DeveloperFactory();
-            var developer = developerFactory.CreateEmployee();
-            developer.Work();
+        // Adapter
+        var legacyEmployee = new LegacyEmployee();
+        var employeeAdapter = new EmployeeAdapter(legacyEmployee);
+        Console.WriteLine($"Адаптер: {employeeAdapter.GetName()}");
 
-            EmployeeFactory designerFactory = new DesignerFactory();
-            var designer = designerFactory.CreateEmployee();
-            designer.Work();
+        // Bridge
+        var developmentDepartment = new DevelopmentDepartment(new DevelopmentManager());
+        developmentDepartment.AssignEmployee();
 
-            EmployeeFactory testerFactory = new TesterFactory();
-            var tester = testerFactory.CreateEmployee();
-            tester.Work();
+        // Composite
+        var devDepartment = new DepartmentComponent();
+        devDepartment.Add(new Employee("Іван"));
+        devDepartment.Add(new Employee("Марія"));
+        devDepartment.Display();
 
-            Console.WriteLine("\n------Abstract Method Pattern------");
-            CompanyFactory companyFactory = new DeveloperFactoryMethod();
-            var devRole = companyFactory.CreateRole();
-            var devDepartment = companyFactory.CreateDepartment();
-            devRole.PerformDuty();
-            devDepartment.AssignDepartment();
+        // Decorator
+        var teamLead = new TeamLeadDecorator(new Developer());
+        teamLead.Work();
 
-            Console.WriteLine("\n=== Builder ===");
-            var project = new ProjectBuilder()
-                .SetName("Сайт для компанії")
-                .SetBudget(100000)
-                .AddTeamMember("Іван")
-                .AddTeamMember("Марія")
-                .Build();
-            project.DisplayInfo();
+        // Facade
+        var companyFacade = new CompanyFacade();
+        CompanyFacade.StartCompany();
 
-            Console.WriteLine("\n=== Prototype ===");
-            var originalEmployee = new Patterns.Prototype.Employee { Name = "Олександр", Role = "Розробник" };
-            var clonedEmployee = (Patterns.Prototype.Employee)originalEmployee.Clone();
-            clonedEmployee.Name = "Петро";
-            Console.WriteLine($"Оригінальний співробітник: {originalEmployee.Name}, {originalEmployee.Role}");
-            Console.WriteLine($"Клонований співробітник: {clonedEmployee.Name}, {clonedEmployee.Role}");
+        // Flyweight
+        var roleFactory = new RoleFactory();
+        var role = roleFactory.GetRole("Розробник");
+        role.Display("Олександр");
 
-
-
-
-        }
+        // Proxy
+        var employeeProxy = new EmployeeProxy();
+        employeeProxy.Work();
     }
 }
-
-

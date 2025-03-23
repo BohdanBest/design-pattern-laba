@@ -10,11 +10,22 @@ namespace CreationalPattern.Patterns.Prototype
         public string Name { get; set; }
         public string Role { get; set; }
 
-        public object Clone() => MemberwiseClone();
+        public Employee(string Name, string Role)
+        {
+            this.Name = Name;
+            this.Role = Role;
+        }
+
+        public object Clone() => new Employee(Name, Role);
 
         public void DisplayInfo()
         {
             Console.WriteLine($"Employee Name: {Name}, Role: {Role},");
+        }
+
+        internal void InputData()
+        {
+            throw new NotImplementedException();
         }
     }
 }

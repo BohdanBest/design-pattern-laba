@@ -9,7 +9,10 @@ namespace CreationalPattern.Patterns.AbstractFactory
     {
         void PerformDuty();
     }
-    public interface IDepartment { void AssignDepartment(); }
+    public interface IDepartment
+    {
+        void AssignDepartment();
+    }
 
     public class DeveloperRole : IRole
     {

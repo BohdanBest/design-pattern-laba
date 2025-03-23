@@ -8,7 +8,7 @@ namespace CreationalPattern.Patterns.Singleton
     public class Company
     {
         private static Company _instance;
-        private Company() { }
+        public Company() { }
         public static Company Instance
         {
             get

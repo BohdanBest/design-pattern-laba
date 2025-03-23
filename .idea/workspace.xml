@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5a8be430-3444-44d9-81ec-d5efc7a67a99" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/CreationalPattern/Patterns/AbstractFactory/CompanyFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CreationalPattern/Patterns/AbstractFactory/CompanyFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CreationalPattern/Patterns/Prototype/Employee.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CreationalPattern/Patterns/Prototype/Employee.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CreationalPattern/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CreationalPattern/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CreationalPattern/bin/Debug/net8.0/CreationalPattern.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CreationalPattern/bin/Debug/net8.0/CreationalPattern.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CreationalPattern/bin/Debug/net8.0/CreationalPattern.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CreationalPattern/bin/Debug/net8.0/CreationalPattern.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CreationalPattern/obj/Debug/net8.0/CreationalPattern.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CreationalPattern/obj/Debug/net8.0/CreationalPattern.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CreationalPattern/obj/Debug/net8.0/CreationalPattern.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CreationalPattern/obj/Debug/net8.0/CreationalPattern.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CreationalPattern/obj/Debug/net8.0/CreationalPattern.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CreationalPattern/obj/Debug/net8.0/CreationalPattern.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CreationalPattern/obj/Debug/net8.0/CreationalPattern.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CreationalPattern/obj/Debug/net8.0/CreationalPattern.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CreationalPattern/obj/Debug/net8.0/CreationalPattern.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CreationalPattern/obj/Debug/net8.0/CreationalPattern.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CreationalPattern/obj/Debug/net8.0/ref/CreationalPattern.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CreationalPattern/obj/Debug/net8.0/ref/CreationalPattern.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CreationalPattern/obj/Debug/net8.0/refint/CreationalPattern.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CreationalPattern/obj/Debug/net8.0/refint/CreationalPattern.dll" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2uPvimvSDqeQb8v3UNI3W1voNaa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "lab3/structural",
+    "kotlin-language-version-configured": "true",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5a8be430-3444-44d9-81ec-d5efc7a67a99" name="Changes" comment="" />
+      <created>1742163153304</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742163153304</updated>
+      <workItem from="1742163154391" duration="182000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
