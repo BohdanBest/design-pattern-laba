@@ -8,9 +8,7 @@ namespace CreationalPattern.StructuralPattern.Flyweight
     public class Role
     {
         public string Title { get; }
-
         public Role(string title) => Title = title;
-
         public void Display(string name) => Console.WriteLine($"{name} - {Title}");
     }
 

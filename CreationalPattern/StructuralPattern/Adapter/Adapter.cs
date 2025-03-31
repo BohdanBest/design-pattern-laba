@@ -11,7 +11,7 @@ namespace CreationalPattern.StructuralPattern.Adapter
     }
     public class LegacyEmployee
     {
-        public string GetFullName() => "John Doe";
+        public static string GetFullName() => "John Doe";
     }
 
     public class EmployeeAdapter : IEmployee
@@ -23,7 +23,7 @@ namespace CreationalPattern.StructuralPattern.Adapter
             _legacyEmployee = legacyEmployee;
         }
 
-        public string GetName() => _legacyEmployee.GetFullName();
+        public string GetName() => LegacyEmployee.GetFullName();
     }
 }
 

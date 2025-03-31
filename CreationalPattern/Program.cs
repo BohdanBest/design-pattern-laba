@@ -1,49 +1,67 @@
-﻿using CreationalPattern.StructuralPattern.Adapter;
-using CreationalPattern.StructuralPattern.Bridge;
-using CreationalPattern.StructuralPattern.Composite;
-using CreationalPattern.StructuralPattern.Decorator;
-using CreationalPattern.StructuralPattern.Facade;
-using CreationalPattern.StructuralPattern.Flyweight;
-using CreationalPattern.StructuralPattern.Proxy;
+﻿using CreationalPattern.BehavioralPattern.ChainOfResponsibility;
+using CreationalPattern.BehavioralPattern.Command;
+using CreationalPattern.BehavioralPattern.Iterator;
+using CreationalPattern.BehavioralPattern.Mediator;
+using CreationalPattern.BehavioralPattern.Memento;
+using CreationalPattern.BehavioralPattern.Observer;
+using CreationalPattern.BehavioralPattern.State;
+using CreationalPattern.BehavioralPattern.Strategy;
+using CreationalPattern.BehavioralPattern.TemplateMethod;
+using CreationalPattern.BehavioralPattern.Visitor;
 
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        // Structural Patterns
-        Console.WriteLine("\n=== Structural Patterns ===");
+        Console.WriteLine("=== Behavioral Patterns ===");
 
-        // Adapter
-        var legacyEmployee = new LegacyEmployee();
-        var employeeAdapter = new EmployeeAdapter(legacyEmployee);
-        Console.WriteLine($"Адаптер: {employeeAdapter.GetName()}");
 
-        // Bridge
-        var developmentDepartment = new DevelopmentDepartment(new DevelopmentManager());
-        developmentDepartment.AssignEmployee();
+        var teamLead = new TeamLead();
+        var hr = new HR();
+        teamLead.SetNext(hr);
+        teamLead.ProcessRequest(new SalaryRequest { EmployeeName = "Іван", Amount = 800 });
+        teamLead.ProcessRequest(new SalaryRequest { EmployeeName = "Олег", Amount = 1200 });
 
-        // Composite
-        var devDepartment = new DepartmentComponent();
-        devDepartment.Add(new Employee("Іван"));
-        devDepartment.Add(new Employee("Марія"));
-        devDepartment.Display();
 
-        // Decorator
-        var teamLead = new TeamLeadDecorator(new Developer());
-        teamLead.Work();
+        var invoker = new Invoker();
+        invoker.SetCommand(new DevelopFeatureCommand());
+        invoker.ExecuteCommand();
 
-        // Facade
-        var companyFacade = new CompanyFacade();
-        CompanyFacade.StartCompany();
 
-        // Flyweight
-        var roleFactory = new RoleFactory();
-        var role = roleFactory.GetRole("Розробник");
-        role.Display("Олександр");
+        foreach (var employee in new EmployeeCollection())
+            Console.WriteLine($"Ітератор: Співробітник {employee}");
 
-        // Proxy
-        var employeeProxy = new EmployeeProxy();
-        employeeProxy.Work();
+
+        var mediator = new CompanyMediator();
+        new Department(mediator).Send("Потрібен бекенд-розробник!");
+
+
+        var project = new Project { State = "В розробці" };
+        var memento = project.Save();
+        project.Restore(memento);
+
+
+        var subject = new ProjectSubject();
+        subject.Attach(new EmployeeObserver());
+        subject.Notify("Релиз завтра!");
+
+
+        var projectContext = new ProjectContext();
+        projectContext.SetState(new InDevelopmentState());
+        projectContext.Request();
+
+
+        var context = new Context();
+        context.SetStrategy(new ManualTesting());
+        context.ExecuteTest();
+
+
+        new DeveloperHiring().Hire();
+
+
+        var calculator = new SalaryCalculator();
+        new Developer().Accept(calculator);
     }
 }
+

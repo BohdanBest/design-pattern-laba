@@ -9,12 +9,11 @@ namespace CreationalPattern.StructuralPattern.Proxy
     {
         void Work();
     }
-
     public class RealEmployee : IEmployee
     {
         public void Work() => Console.WriteLine("Співробітник працює.");
     }
-
+    
     public class EmployeeProxy : IEmployee
     {
         private RealEmployee _realEmployee;
