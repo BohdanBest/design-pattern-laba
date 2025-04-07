@@ -5,20 +5,20 @@ using System.Threading.Tasks;
 
 namespace CreationalPattern.BehavioralPattern.Strategy
 {
-    public interface ITestingStrategy
+    public class TaskProcessor
     {
-        void Test();
-    }
+        private ITaskEstimationStrategy _strategy;
 
-    public class ManualTesting : ITestingStrategy
-    {
-        public void Test() => Console.WriteLine("Ручне тестування...");
-    }
+        public TaskProcessor(ITaskEstimationStrategy strategy)
+        {
+            _strategy = strategy;
+        }
 
-    public class Context
-    {
-        private ITestingStrategy _strategy;
-        public void SetStrategy(ITestingStrategy strategy) => _strategy = strategy;
-        public void ExecuteTest() => _strategy?.Test();
+        public void SetStrategy(ITaskEstimationStrategy strategy) => _strategy = strategy;
+
+        public int ProcessTask(Task task)
+        {
+            return _strategy.EstimateComplexity(task);
+        }
     }
 }

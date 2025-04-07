@@ -5,20 +5,27 @@ using System.Threading.Tasks;
 
 namespace CreationalPattern.BehavioralPattern.Command
 {
-    public interface ICommand
+    public class TaskInvoker
     {
-        void Execute();
-    }
+        private readonly Stack<ICommand> _commandHistory = new();
 
-    public class DevelopFeatureCommand : ICommand
-    {
-        public void Execute() => Console.WriteLine("Розробник: Реалізую нову функцію...");
-    }
+        public void ExecuteCommand(ICommand command)
+        {
+            command.Execute();
+            _commandHistory.Push(command);
+        }
 
-    public class Invoker
-    {
-        private ICommand _command;
-        public void SetCommand(ICommand command) => _command = command;
-        public void ExecuteCommand() => _command?.Execute();
+        public void UndoLastCommand()
+        {
+            if (_commandHistory.Count > 0)
+            {
+                var command = _commandHistory.Pop();
+                command.Undo();
+            }
+            else
+            {
+                Console.WriteLine("Немає команд для скасування.");
+            }
+        }
     }
 }

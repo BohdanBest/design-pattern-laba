@@ -5,20 +5,50 @@ using System.Threading.Tasks;
 
 namespace CreationalPattern.BehavioralPattern.Observer
 {
-    public interface IObserver
-    {
-        void Update(string message);
-    }
 
     public class EmployeeObserver : IObserver
     {
-        public void Update(string message) => Console.WriteLine($"Співробітник отримав повідомлення: {message}");
+        private readonly string _name;
+
+        public EmployeeObserver(string name) => _name = name;
+
+        public void Update(ProjectEvent projectEvent)
+        {
+            switch (projectEvent.EventType)
+            {
+                case ProjectEventType.StatusChanged:
+                    Console.WriteLine($"{_name} (Співробітник): Статус проєкту змінено на '{projectEvent.Details}'");
+                    break;
+                case ProjectEventType.DeadlineUpdated:
+                    Console.WriteLine($"{_name} (Співробітник): Новий дедлайн: {projectEvent.Details}");
+                    break;
+                case ProjectEventType.NameChanged:
+                    Console.WriteLine($"{_name} (Співробітник): Назва проєкту змінена на '{projectEvent.Details}'");
+                    break;
+            }
+        }
     }
 
-    public class ProjectSubject
+    public class ManagerObserver : IObserver
     {
-        private readonly List<IObserver> _observers = new();
-        public void Attach(IObserver observer) => _observers.Add(observer);
-        public void Notify(string message) => _observers.ForEach(o => o.Update(message));
+        private readonly string _name;
+
+        public ManagerObserver(string name) => _name = name;
+
+        public void Update(ProjectEvent projectEvent)
+        {
+            switch (projectEvent.EventType)
+            {
+                case ProjectEventType.StatusChanged:
+                    Console.WriteLine($"{_name} (Менеджер): Статус оновлено: {projectEvent.Details}. Перевіряю графік.");
+                    break;
+                case ProjectEventType.DeadlineUpdated:
+                    Console.WriteLine($"{_name} (Менеджер): Дедлайн змінено на {projectEvent.Details}. Оновлюю план.");
+                    break;
+                case ProjectEventType.NameChanged:
+                    Console.WriteLine($"{_name} (Менеджер): Нова назва проєкту: {projectEvent.Details}. Оновлюю документацію.");
+                    break;
+            }
+        }
     }
 }

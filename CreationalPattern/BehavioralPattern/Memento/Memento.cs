@@ -5,16 +5,20 @@ using System.Threading.Tasks;
 
 namespace CreationalPattern.BehavioralPattern.Memento
 {
+
     public class ProjectMemento
     {
-        public string State { get; }
-        public ProjectMemento(string state) => State = state;
+        private readonly ProjectState _state;
+        public string Comment { get; }
+
+        public ProjectMemento(ProjectState state, string comment)
+        {
+            _state = state;
+            Comment = comment;
+        }
+
+        public ProjectState GetState() => _state;
     }
 
-    public class Project
-    {
-        public string State { get; set; }
-        public ProjectMemento Save() => new(State);
-        public void Restore(ProjectMemento memento) => State = memento.State;
-    }
+    
 }

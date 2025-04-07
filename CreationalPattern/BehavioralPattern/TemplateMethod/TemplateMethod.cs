@@ -5,21 +5,30 @@ using System.Threading.Tasks;
 
 namespace CreationalPattern.BehavioralPattern.TemplateMethod
 {
-    public abstract class HiringProcess
+    public abstract class ProjectWorkflow
     {
-        public void Hire()
+        public void ExecuteProject()
         {
-            Interview();
-            TechnicalTest();
-            Offer();
+            PlanProject();
+            PerformTasks();
+            ReviewResults();
+            FinalizeProject();
         }
-        protected abstract void TechnicalTest();
-        private void Interview() => Console.WriteLine("Інтерв’ю...");
-        private void Offer() => Console.WriteLine("Пропозиція офферу...");
-    }
+        private void PlanProject()
+        {
+            Console.WriteLine("Планування проєкту: визначення цілей і ресурсів.");
+        }
 
-    public class DeveloperHiring : HiringProcess
-    {
-        protected override void TechnicalTest() => Console.WriteLine("Код-рев’ю та алгоритми...");
+        protected abstract void PerformTasks();
+
+        protected virtual void ReviewResults()
+        {
+            Console.WriteLine("Перегляд результатів: базова перевірка якості.");
+        }
+
+        private void FinalizeProject()
+        {
+            Console.WriteLine("Завершення проєкту: підготовка звітів і закриття.");
+        }
     }
 }

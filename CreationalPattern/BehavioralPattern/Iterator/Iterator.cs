@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace CreationalPattern.BehavioralPattern.Iterator
 {
-    public class EmployeeCollection : IEnumerable<string>
-    {
-        private readonly List<string> _employees = ["Іван", "Марія", "Петро"];
 
-        public IEnumerator<string> GetEnumerator() => _employees.GetEnumerator();
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+    public class EmployeeCollection
+    {
+        private readonly List<Employee> _employees = new();
+
+        public void AddEmployee(Employee employee) => _employees.Add(employee);
+
+        public IEmployeeIterator CreateIterator(int minExperience = 0) => new ExperiencedEmployeeIterator(_employees, minExperience);
+
+        public int Count => _employees.Count;
     }
 }
